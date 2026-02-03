@@ -37,7 +37,7 @@ CREATE (ana)-[:LIKED]->(bohemian)
 CREATE (bruno)-[:LIKED]->(bohemian)
 CREATE (bruno)-[:LIKED]->(shake)
 ```
-🧠 Queries de Recomendação
+## 🧠 Queries de Recomendação
 1. Recomendação "Quem ouviu isso, também ouviu..."
 Encontra músicas ouvidas por pessoas que têm gostos similares ao usuário alvo.
 code
@@ -55,6 +55,6 @@ MATCH (u:User {name: "Ana"})-[:LIKED]->(m:Song)-[:BELONGS_TO]->(g:Genre)<-[:BELO
 WHERE NOT (u)-[:LISTENED_TO]->(rec)
 RETURN rec.title AS Recomendacao, g.name AS Genero
 ```
-📊 Resultados Visuais
+## 📊 Resultados Visuais
 (Aqui você pode colocar um print do seu grafo completo rodando MATCH (n)-[r]->(m) RETURN n,r,m)
 Projeto entregue para o Bootcamp de Data Analytics com Neo4j.
