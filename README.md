@@ -56,5 +56,6 @@ WHERE NOT (u)-[:LISTENED_TO]->(rec)
 RETURN rec.title AS Recomendacao, g.name AS Genero
 ```
 ## 📊 Resultados Visuais
-(Aqui você pode colocar um print do seu grafo completo rodando MATCH (n)-[r]->(m) RETURN n,r,m)
+<img width="1467" height="498" alt="visualisation" src="https://github.com/user-attachments/assets/c772514a-9952-4723-af29-5f4d81225a18" />
+
 Projeto entregue para o Bootcamp de Data Analytics com Neo4j.
