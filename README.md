@@ -36,23 +36,25 @@ CREATE (bruno:User {name: "Bruno"})
 CREATE (ana)-[:LIKED]->(bohemian)
 CREATE (bruno)-[:LIKED]->(bohemian)
 CREATE (bruno)-[:LIKED]->(shake)
-
+```
 🧠 Queries de Recomendação
 1. Recomendação "Quem ouviu isso, também ouviu..."
 Encontra músicas ouvidas por pessoas que têm gostos similares ao usuário alvo.
 code
-Cypher
+```Cypher
 MATCH (u:User {name: "Ana"})-[:LISTENED_TO]->(m:Song)<-[:LISTENED_TO]-(o:User)-[:LISTENED_TO]->(rec:Song)
 WHERE NOT (u)-[:LISTENED_TO]->(rec)
 RETURN rec.title AS Recomendacao, count(o) AS Forca
 ORDER BY Forca DESC
+```
 2. Recomendação por Gênero Favorito
 Sugere músicas do mesmo gênero das músicas que o usuário deu "Like".
 code
-Cypher
+```Cypher
 MATCH (u:User {name: "Ana"})-[:LIKED]->(m:Song)-[:BELONGS_TO]->(g:Genre)<-[:BELONGS_TO]-(rec:Song)
 WHERE NOT (u)-[:LISTENED_TO]->(rec)
 RETURN rec.title AS Recomendacao, g.name AS Genero
+```
 📊 Resultados Visuais
 (Aqui você pode colocar um print do seu grafo completo rodando MATCH (n)-[r]->(m) RETURN n,r,m)
 Projeto entregue para o Bootcamp de Data Analytics com Neo4j.
